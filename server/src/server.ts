@@ -1,17 +1,17 @@
-import express from 'express';
+import express from "express";
+import path from "path";
+import { Route } from "./app/routes";
 
 const app = express();
 const PORT = 3333;
 
-app.get('/users', (request, response) => {
-    const users = [
-        { name: 'Lucas Gabriel', dev: 'back-end' },
-        { name: 'Rafael Epifanio', dev: 'back-end' },
-        { name: 'Caio teste', dev: 'front-end' },
-    ]
-    response.json(users);
-})
+const router = new Route();
+const routes = router.listRoutes;
+
+app.use("/api", routes);
+
+app.use("/uploads", express.static(path.resolve(__dirname, "..", "uploads")));
 
 app.listen(PORT, () => {
-    console.log(`Servidor iniciado na porta ${PORT}`);
+  console.log(`Servidor iniciado na porta ${PORT}`);
 });
