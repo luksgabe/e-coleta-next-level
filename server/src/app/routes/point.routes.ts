@@ -1,5 +1,5 @@
 import express, { Router } from "express";
-import { PointController } from '../controllers/point.controller';
+import { PointController } from "../controllers/point.controller";
 
 export class PointRoutes {
   private routes: Router;
@@ -12,6 +12,7 @@ export class PointRoutes {
 
   set(): Router {
     this.routes.post("/points", this.controller.create);
+    this.routes.get("/points", this.controller.index);
     this.routes.get("/points/:id", this.controller.show);
     return this.routes;
   }
