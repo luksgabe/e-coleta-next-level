@@ -10,7 +10,6 @@ const router = new Route();
 const routes = router.listRoutes;
 
 app.use(cors());
-
 app.use(express.json());
 app.use("/api", routes);
 
