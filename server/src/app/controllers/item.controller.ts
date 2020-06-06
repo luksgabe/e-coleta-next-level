@@ -1,4 +1,4 @@
-import { Request, Response } from "express-serve-static-core";
+import { Request, Response } from "express";
 import knex from "../../infra/database/connection";
 
 export class ItemController {
@@ -7,7 +7,7 @@ export class ItemController {
 
     const serializedItem = items.map(item => {
       return {
-        name: item.name,
+        name: item.title,
         image_url: `http://localhost:3333/uploads/${item.image}`
       };
     });

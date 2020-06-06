@@ -1,5 +1,6 @@
 import express, { Router } from "express";
 import { ItemRoutes } from "./item.routes";
+import { PointRoutes } from './point.routes';
 
 const routes = express.Router();
 
@@ -18,8 +19,9 @@ export class Route {
 
   getRoutes(): Router[] {
     const itemRoutes = new ItemRoutes();
+    const pointRoutes = new PointRoutes();
 
-    const list = [this.router, itemRoutes.setRoutes()];
+    const list = [this.router, itemRoutes.set(), pointRoutes.set()];
     return list;
   }
 }

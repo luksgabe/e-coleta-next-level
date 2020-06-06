@@ -10,7 +10,7 @@ export class ItemRoutes {
     this.controller = new ItemController();
   }
 
-  setRoutes(): Router {
+  set(): Router {
     this.routes.get("/items", this.controller.index);
     return this.routes;
   }
